@@ -17,7 +17,7 @@ class GetWeatherServiceTest {
     }
 
     @Test
-    void getCurrentTemperature() {
-
+    void getCurrentTemperatureReturnNullPointerException() {
+        //TODO написать тесты с проверкой на пустое тело респонса
     }
 }
