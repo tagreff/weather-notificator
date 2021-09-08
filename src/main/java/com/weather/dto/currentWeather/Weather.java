@@ -1,8 +1,5 @@
 package com.weather.dto.currentWeather;
 
-import lombok.Data;
-
-
 public class Weather {
     private Integer id;
     private String main;

@@ -1,10 +1,5 @@
 package com.weather.dto.currentWeather;
 
-import lombok.Data;
-
-import java.time.LocalDate;
-
-
 public class Sys {
     private Integer type;
     private Integer id;

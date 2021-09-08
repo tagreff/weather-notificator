@@ -1,7 +1,5 @@
 package com.weather.dto.currentWeather;
 
-import lombok.Data;
-
 
 public class Coord {
     private double lon;

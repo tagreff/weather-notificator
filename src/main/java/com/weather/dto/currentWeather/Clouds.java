@@ -1,7 +1,5 @@
 package com.weather.dto.currentWeather;
 
-import lombok.Data;
-
 
 public class Clouds {
     private String all;

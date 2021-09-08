@@ -1,8 +1,5 @@
 package com.weather.dto.currentWeather;
 
-import lombok.Data;
-import lombok.ToString;
-
 
 public class CurrentWeather {
     private Coord coord;

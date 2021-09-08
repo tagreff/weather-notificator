@@ -1,8 +1,5 @@
 package com.weather.dto.currentWeather;
 
-import lombok.Data;
-
-
 public class Wind {
     private Double speed;
     private Integer deg;
