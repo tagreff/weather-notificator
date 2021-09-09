@@ -14,9 +14,9 @@ public class WeatherController {
     SendMessageService sendMessage;
 
     // example http://localhost:8080/weather?num=9191234567
-    @RequestMapping()
-    public void requestMessage(@RequestParam(value="num") String number) {
-        sendMessage.sendMessage(); // методу sendMessage по идее добавить параметр number, чтобы он знал,
+    @GetMapping("/{num}")
+    public String requestMessage(@PathVariable String num) {
+        return sendMessage.sendMessage(num, "testMsg"); // методу sendMessage по идее добавить параметр number, чтобы он знал,
         // на какой номер отправлять сообщение и передать ему number
         // sendMessage() должен ли принимать String message?
        /**
