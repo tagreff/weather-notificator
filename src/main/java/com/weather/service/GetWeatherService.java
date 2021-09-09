@@ -2,10 +2,13 @@ package com.weather.service;
 
 import com.weather.dto.currentWeather.CurrentWeather;
 //import com.weather.exception.WeatherAPIException;
+import com.weather.exception.WeatherAPIException;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.Optional;
 
 import static org.springframework.http.HttpMethod.GET;
 
@@ -17,7 +20,14 @@ public class GetWeatherService {
         ResponseEntity<CurrentWeather> result = restTemplate.exchange(url, GET, null, new ParameterizedTypeReference<CurrentWeather>() {
         });
         CurrentWeather currentWeather = result.getBody();
-        return currentWeather.getMain().getTemp_min();
+
+        Optional<Double> temp = Optional.ofNullable(currentWeather.getMain().getTemp_min());
+        if(temp.isPresent()){
+            return temp.get() - 273.15;
+        }
+        throw new WeatherAPIException("Все плохо в сервисе погоды");
+
+
 //        return parsingTemperature(result);
     }
 
