@@ -15,18 +15,8 @@ class GetWeatherServiceTest {
 
     @Test
     void getCurrentTemperatureReturnNullPointerException() {
-        String NaberezhnyeСhelny = "https://api.openweathermap.org/data/2.5/weather?id=523750&appid=740bff51e977096cbba34ebfa8bf3644";
         Assertions.assertThrows(NullPointerException.class, () -> {
-            getWeatherService.getCurrentTemperature(NaberezhnyeСhelny);
-        });
-    }
-
-    @Test
-    void getCurrentTemperatureReturnIllegalArgumentException() {
-        getWeatherService = new GetWeatherService();
-        String emptyUrl = "";
-        Assertions.assertThrows(IllegalArgumentException.class, () -> {
-            getWeatherService.getCurrentTemperature(emptyUrl);
+            getWeatherService.getCurrentTemperature();
         });
     }
 }

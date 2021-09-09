@@ -11,7 +11,8 @@ import static org.springframework.http.HttpMethod.GET;
 @Component("GetWeatherService")
 public class GetWeatherService {
 
-    public Double getCurrentTemperature(String url) {
+    public Double getCurrentTemperature() {
+        final String url = "https://api.openweathermap.org/data/2.5/weather?id=523750&appid=740bff51e977096cbba34ebfa8bf3644";
         RestTemplate restTemplate = new RestTemplate();
         ResponseEntity<CurrentWeather> result = restTemplate.exchange(url, GET, null, new ParameterizedTypeReference<CurrentWeather>() {
         });
