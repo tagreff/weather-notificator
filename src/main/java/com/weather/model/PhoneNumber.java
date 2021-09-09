@@ -1,24 +1,15 @@
 package com.weather.model;
 
 public class PhoneNumber {
-    private String country;
-    private String code;
+    private CountryCode countryCode;
     private String number;
 
-    public String getCountry() {
-        return country;
+    public CountryCode getCountryCode() {
+        return countryCode;
     }
 
-    public void setCountry(String country) {
-        this.country = country;
-    }
-
-    public String getCode() {
-        return code;
-    }
-
-    public void setCode(String code) {
-        this.code = code;
+    public void setCountryCode(CountryCode countryCode) {
+        this.countryCode = countryCode;
     }
 
     public String getNumber() {
@@ -30,11 +21,16 @@ public class PhoneNumber {
     }
 
     @Override
-    public String toString() {
-        return "PhoneNumber{" +
-                "country='" + country + '\'' +
-                ", code='" + code + '\'' +
-                ", number='" + number + '\'' +
-                '}';
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null || getClass() != obj.getClass()) {
+            return false;
+        }
+        PhoneNumber phoneNumber = (PhoneNumber)obj;
+        if (!this.number.equals(phoneNumber.getNumber()))
+            return false;
+        return this.countryCode == phoneNumber.getCountryCode();
     }
 }
