@@ -1,23 +1,33 @@
 package com.weather.service;
 
+import com.weather.dto.currentWeather.CurrentWeather;
+import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
-import org.springframework.web.client.RestTemplate;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class GetWeatherServiceTest {
-    RestTemplate restTemplate;
+    GetWeatherService getWeatherService = new GetWeatherService();
+
+    CurrentWeather currentWeather;
 
     @BeforeEach
     void init(){
-        restTemplate = Mockito.spy(RestTemplate.class);
+
+        currentWeather = Mockito.spy(CurrentWeather.class);
+
 
     }
 
     @Test
-    void getCurrentTemperatureReturnNullPointerException() {
-        //TODO написать тесты с проверкой на пустое тело респонса
+    void getCurrentTemperatureReturnIllegalStatement() {
+        Assertions.assertThat(getWeatherService.getCurrentTemperature()).isGreaterThan(-70.0);
+        Assertions.assertThat(getWeatherService.getCurrentTemperature()).isLessThan(60.0);
     }
+
+//    @Test
+//    void getCurrentTemperatureReturnNullPointerException(){
+//        Mockito.doReturn(null).when(currentWeather.getMain().getTemp_min());
+//        Assertions.assertThatExceptionOfType(NullPointerException.class).isThrownBy(() -> getWeatherService.getCurrentTemperature());
+//    }
 }
