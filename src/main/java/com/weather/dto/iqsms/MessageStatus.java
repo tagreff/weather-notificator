@@ -10,6 +10,6 @@ import lombok.Data;
 @Data
 public class MessageStatus {
     private String status;
-    private int smscId;
-    private int clientId;
+    private long smscId;
+    private long clientId;
 }

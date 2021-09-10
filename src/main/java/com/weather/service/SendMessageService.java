@@ -40,7 +40,7 @@ public class SendMessageService {
         // TODO: check phone number
 
         sendMessage.setMessages(List.of(message
-                .setPhone(number)
+                .setPhone("7".concat(number))
                 .setClientId(++messageId)
                 .setText(utf8text)));
 

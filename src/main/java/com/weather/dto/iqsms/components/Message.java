@@ -17,8 +17,8 @@ import org.springframework.stereotype.Component;
 @PropertySource(value= {"classpath:application.properties"})
 public class Message {
     private String phone;
-    @Value("${smsAPI.sender}")
-    private String sender;
+//    @Value("${smsAPI.sender}")
+//    private String sender;
     private int clientId;
     private String text;
 }
