@@ -37,6 +37,7 @@ class PhoneNumberArgumentResolverTest {
     private final static String TOO_LONG_PHONE_NUMBER = "0121234567890";
     private final static String UNEXPECTED_SYMBOLS_PHONE_NUMBER = "012-123-45";
     private final static String OK_COUNTRY_CODE = "RU";
+    private final static String UNKNOWN_COUNTRY_CODE = "BAD_COUNTRY_CODE";
 
     @Test
     void resolveArgument_OkHeaderAndOkParam_OkPhoneNumber() {
@@ -53,6 +54,17 @@ class PhoneNumberArgumentResolverTest {
     void resolveArgument_NoHeaderAndOkParam_PhoneNumberWithUNKOWNCountryCode() {
         final PhoneNumber EXPECTED_PHONE_NUMBER = new PhoneNumber(CountryCode.UNKNOWN, "0121234567");
 
+        Mockito.when(nativeWebRequest.getParameter(Mockito.eq("num"))).thenReturn(OK_PHONE_NUMBER);
+        PhoneNumber actualPhoneNumber = (PhoneNumber) phoneNumberArgumentResolver.resolveArgument(methodParameter, modelAndViewContainer, nativeWebRequest, webDataBinderFactory);
+
+        assertEquals(EXPECTED_PHONE_NUMBER, actualPhoneNumber);
+    }
+
+    @Test
+    void resolveArgument_HeaderWithUnknownValueAndOkParam_PhoneNumberWithUNKOWNCountryCode() {
+        final PhoneNumber EXPECTED_PHONE_NUMBER = new PhoneNumber(CountryCode.UNKNOWN, "0121234567");
+
+        Mockito.when(nativeWebRequest.getHeader(Mockito.eq("CountryCode"))).thenReturn(UNKNOWN_COUNTRY_CODE);
         Mockito.when(nativeWebRequest.getParameter(Mockito.eq("num"))).thenReturn(OK_PHONE_NUMBER);
         PhoneNumber actualPhoneNumber = (PhoneNumber) phoneNumberArgumentResolver.resolveArgument(methodParameter, modelAndViewContainer, nativeWebRequest, webDataBinderFactory);
 
