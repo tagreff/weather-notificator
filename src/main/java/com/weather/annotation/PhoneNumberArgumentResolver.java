@@ -39,7 +39,7 @@ public class PhoneNumberArgumentResolver implements HandlerMethodArgumentResolve
         } else if (countryCodeHeader.equalsIgnoreCase("RU")) {
             countryCode = CountryCode.RU;
         } else if (countryCodeHeader.equalsIgnoreCase("BY")) {
-            countryCode = CountryCode.BZ;
+            countryCode = CountryCode.BY;
         } else if (countryCodeHeader.equalsIgnoreCase("UA")) {
             countryCode = CountryCode.UA;
         } else {

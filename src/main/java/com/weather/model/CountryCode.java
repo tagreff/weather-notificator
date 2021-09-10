@@ -2,7 +2,7 @@ package com.weather.model;
 
 public enum CountryCode {
     RU(7, "Россия"),
-    BZ(375, "Беларусь"),
+    BY(375, "Беларусь"),
     UA(380, "Украина"),
     UNKNOWN();
 
