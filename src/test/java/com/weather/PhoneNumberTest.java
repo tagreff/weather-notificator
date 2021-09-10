@@ -1,5 +1,8 @@
 package com.weather;
 
+import com.weather.impl.InjectRandomNumber;
+import com.weather.model.PhoneNumber;
+import org.apache.commons.logging.Log;
 import org.junit.Assert;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,7 +13,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 
 @RunWith(SpringRunner.class)
-@ContextConfiguration(locations = "*")
+@ContextConfiguration(locations = "classpath:testContext.xml")
 @RecordApplicationEvents
 public class PhoneNumberTest {
     @InjectRandomNumber
