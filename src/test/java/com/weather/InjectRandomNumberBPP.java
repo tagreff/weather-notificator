@@ -5,7 +5,6 @@ import com.weather.impl.InjectRandomNumberAnnotationBPP;
 import com.weather.model.PhoneNumber;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
-import org.springframework.util.Assert;
 
 public class InjectRandomNumberBPP {
 
@@ -32,14 +31,14 @@ public class InjectRandomNumberBPP {
         PhoneNumber phoneNumber2 = objectWithFieldToInject.getPhoneNumber();
         Assertions.assertNotEquals(phoneNumber2, phoneNumber1);
     }
-
-        class TestClassWithFieldAnnotatedWithInjectRandomNumber {
-        @InjectRandomNumber
-        public PhoneNumber phoneNumber;
-
-        public PhoneNumber getPhoneNumber() {
-            return phoneNumber;
-        }
-    }
-
 }
+
+class TestClassWithFieldAnnotatedWithInjectRandomNumber {
+    @InjectRandomNumber
+    public PhoneNumber phoneNumber;
+
+    public PhoneNumber getPhoneNumber() {
+        return phoneNumber;
+    }
+}
+
