@@ -44,24 +44,24 @@ public class InjectRandomNumberAnnotationBeanPostProcessor implements BeanPostPr
 
     private static PhoneNumber createPojoRandomNumber() {
         PhoneNumber number = new PhoneNumber();
-        String s = generateRandomNumber();
-        if (s.substring(0, 1).equals(String.valueOf(CountryCode.RU.getCode()))) {
-            number.setCountry(CountryCode.RU.getCountry());
-            number.setCode(String.valueOf(CountryCode.RU.getCode()));
-            number.setNumber(s);
-        } else if (s.substring(0, 2).equals(String.valueOf(CountryCode.UA.getCode()))) {
-            number.setCountry(CountryCode.UA.getCountry());
-            number.setCode(String.valueOf(CountryCode.UA.getCode()));
-            number.setNumber(s);
-        } else if (s.substring(0, 2).equals(String.valueOf(CountryCode.BZ.getCode()))) {
-            number.setCountry(CountryCode.BZ.getCountry());
-            number.setCode(String.valueOf(CountryCode.BZ.getCode()));
-            number.setNumber(s);
-        } else {
-            number.setCountry(CountryCode.UNKNOWN.getCountry());
-            number.setCode(String.valueOf(CountryCode.UNKNOWN.getCode()));
-            number.setNumber(s);
-        }
+//        String s = generateRandomNumber();
+//        if (s.substring(0, 1).equals(String.valueOf(CountryCode.RU.getCode()))) {
+//            number.setCountry(CountryCode.RU.getCountry());
+//            number.setCode(String.valueOf(CountryCode.RU.getCode()));
+//            number.setNumber(s);
+//        } else if (s.substring(0, 2).equals(String.valueOf(CountryCode.UA.getCode()))) {
+//            number.setCountry(CountryCode.UA.getCountry());
+//            number.setCode(String.valueOf(CountryCode.UA.getCode()));
+//            number.setNumber(s);
+//        } else if (s.substring(0, 2).equals(String.valueOf(CountryCode.BZ.getCode()))) {
+//            number.setCountry(CountryCode.BZ.getCountry());
+//            number.setCode(String.valueOf(CountryCode.BZ.getCode()));
+//            number.setNumber(s);
+//        } else {
+//            number.setCountry(CountryCode.UNKNOWN.getCountry());
+//            number.setCode(String.valueOf(CountryCode.UNKNOWN.getCode()));
+//            number.setNumber(s);
+//        }
         return number;
     }
 }

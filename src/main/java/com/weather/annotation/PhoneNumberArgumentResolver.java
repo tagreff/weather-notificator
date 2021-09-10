@@ -18,11 +18,12 @@ public class PhoneNumberArgumentResolver implements HandlerMethodArgumentResolve
 
     @Override
     public boolean supportsParameter(MethodParameter methodParameter) {
-        return methodParameter.getParameter().getType() == PhoneNumber.class;
+        return methodParameter.getParameterAnnotation(com.weather.annotation.PhoneNumber.class) != null &&
+                methodParameter.getParameterType() == PhoneNumber.class;
     }
 
     @Override
-    public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws Exception {
+    public Object resolveArgument(MethodParameter methodParameter, ModelAndViewContainer modelAndViewContainer, NativeWebRequest nativeWebRequest, WebDataBinderFactory webDataBinderFactory) throws RuntimeException {
         String countryCodeHeader = nativeWebRequest.getHeader("CountryCode");
         countryCodeHeader = countryCodeHeader != null ? countryCodeHeader : "";
         String phoneNumberParameter = nativeWebRequest.getParameter("num");
@@ -33,23 +34,12 @@ public class PhoneNumberArgumentResolver implements HandlerMethodArgumentResolve
         }
 
         CountryCode countryCode;
-        // case agnostic comparison
-        if (countryCodeHeader.equals("")) {
-            countryCode = CountryCode.UNKNOWN;
-        } else if (countryCodeHeader.equalsIgnoreCase("RU")) {
-            countryCode = CountryCode.RU;
-        } else if (countryCodeHeader.equalsIgnoreCase("BY")) {
-            countryCode = CountryCode.BZ;
-        } else if (countryCodeHeader.equalsIgnoreCase("UA")) {
-            countryCode = CountryCode.UA;
-        } else {
+        try {
+            countryCode = CountryCode.valueOf(countryCodeHeader.toUpperCase());
+        } catch (IllegalArgumentException exception) {
             countryCode = CountryCode.UNKNOWN;
         }
-        PhoneNumber phoneNumber = new PhoneNumber();
-        phoneNumber.setNumber(phoneNumberParameter);
-        phoneNumber.setCode(countryCode.getCountry());
-        phoneNumber.setCode(String.valueOf(countryCode.getCode()));
 
-        return phoneNumber;
+        return new PhoneNumber(countryCode, phoneNumberParameter);
     }
 }
