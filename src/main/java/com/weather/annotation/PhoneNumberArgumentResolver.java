@@ -47,8 +47,7 @@ public class PhoneNumberArgumentResolver implements HandlerMethodArgumentResolve
         }
         PhoneNumber phoneNumber = new PhoneNumber();
         phoneNumber.setNumber(phoneNumberParameter);
-        phoneNumber.setCode(countryCode.getCountry());
-        phoneNumber.setCode(String.valueOf(countryCode.getCode()));
+        phoneNumber.setCountryCode(countryCode);
 
         return phoneNumber;
     }
