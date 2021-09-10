@@ -4,6 +4,7 @@ import com.weather.dto.iqsms.SendStatus;
 import com.weather.dto.iqsms.components.Message;
 import com.weather.dto.iqsms.components.SendMessage;
 import com.weather.exception.SendMessageException;
+import com.weather.utils.PhoneNumberValidator;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.*;
 import org.springframework.stereotype.Service;
@@ -29,8 +30,8 @@ public class SendMessageService {
     private int messageId;
 
     public SendStatus sendMessage (String number, String text) {
-        if(number == null || text == null) {
-            throw new SendMessageException("Null arguments in SendMessageService");
+        if(!PhoneNumberValidator.isValid(number) || text == null) {
+            throw new SendMessageException("Invalid or null arguments in SendMessageService");
         }
 
         // encode UTF-8
