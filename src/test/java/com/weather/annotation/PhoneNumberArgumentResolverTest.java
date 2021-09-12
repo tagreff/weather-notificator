@@ -4,8 +4,8 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import com.weather.exception.NumberNotProvidedException;
-import com.weather.model.CountryCode;
-import com.weather.model.PhoneNumber;
+import com.weather.dto.phoneNumber.CountryCode;
+import com.weather.dto.phoneNumber.PhoneNumber;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
@@ -73,21 +73,15 @@ class PhoneNumberArgumentResolverTest {
 
     @Test
     void resolveArgument_NoParam_ThrowsNumberNotProvidedException() {
-        assertThrows(NumberNotProvidedException.class, () -> {
-            phoneNumberArgumentResolver.resolveArgument(methodParameter, modelAndViewContainer, nativeWebRequest, webDataBinderFactory);
-        });
+        assertThrows(NumberNotProvidedException.class, () -> phoneNumberArgumentResolver.resolveArgument(methodParameter, modelAndViewContainer, nativeWebRequest, webDataBinderFactory));
     }
 
     @Test
     void resolveArgument_ParamWithWrongNumberFormat_ThrowsNumberFormatException() {
         Mockito.when(nativeWebRequest.getParameter(Mockito.eq("num"))).thenReturn(TOO_LONG_PHONE_NUMBER);
-        assertThrows(NumberFormatException.class, () -> {
-            phoneNumberArgumentResolver.resolveArgument(methodParameter, modelAndViewContainer, nativeWebRequest, webDataBinderFactory);
-        });
+        assertThrows(NumberFormatException.class, () -> phoneNumberArgumentResolver.resolveArgument(methodParameter, modelAndViewContainer, nativeWebRequest, webDataBinderFactory));
 
         Mockito.when(nativeWebRequest.getParameter(Mockito.eq("num"))).thenReturn(UNEXPECTED_SYMBOLS_PHONE_NUMBER);
-        assertThrows(NumberFormatException.class, () -> {
-            phoneNumberArgumentResolver.resolveArgument(methodParameter, modelAndViewContainer, nativeWebRequest, webDataBinderFactory);
-        });
+        assertThrows(NumberFormatException.class, () -> phoneNumberArgumentResolver.resolveArgument(methodParameter, modelAndViewContainer, nativeWebRequest, webDataBinderFactory));
     }
 }

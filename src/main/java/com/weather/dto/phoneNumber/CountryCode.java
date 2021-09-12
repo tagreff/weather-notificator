@@ -1,4 +1,4 @@
-package com.weather.model;
+package com.weather.dto.phoneNumber;
 
 public enum CountryCode {
     RU(7, "Россия"),

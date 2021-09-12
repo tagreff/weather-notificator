@@ -1,12 +1,12 @@
 package com.weather.annotation;
 
-import com.weather.model.PhoneNumber;
+import com.weather.dto.phoneNumber.PhoneNumber;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class InjectRandomNumberBPPTest {
+public class InjectRandomPhoneNumberBPPTest {
 
-    private final InjectRandomNumberAnnotationBPP injectRandomNumberAnnotationBeanPostProcessor = new InjectRandomNumberAnnotationBPP();
+    private final InjectRandomPhoneNumberAnnotationBPP injectRandomNumberAnnotationBeanPostProcessor = new InjectRandomPhoneNumberAnnotationBPP();
 
     @Test
     public void should_inject_phone_number_and_all_fields_must_be_not_null(){

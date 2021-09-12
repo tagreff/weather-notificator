@@ -1,8 +1,8 @@
 package com.weather.annotation;
 
 import com.weather.exception.NumberNotProvidedException;
-import com.weather.model.CountryCode;
-import com.weather.model.PhoneNumber;
+import com.weather.dto.phoneNumber.CountryCode;
+import com.weather.dto.phoneNumber.PhoneNumber;
 import org.springframework.core.MethodParameter;
 import org.springframework.web.bind.support.WebDataBinderFactory;
 import org.springframework.web.context.request.NativeWebRequest;

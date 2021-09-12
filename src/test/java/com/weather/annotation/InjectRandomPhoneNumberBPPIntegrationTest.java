@@ -1,7 +1,7 @@
 package com.weather.annotation;
 
 import com.weather.configuration.AppConfig;
-import com.weather.model.PhoneNumber;
+import com.weather.dto.phoneNumber.PhoneNumber;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.ContextConfiguration;
@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 @ExtendWith(SpringExtension.class)
 @ContextConfiguration(classes = AppConfig.class)
-public class PhoneNumberIntegrationTest {
+public class InjectRandomPhoneNumberBPPIntegrationTest {
     @InjectRandomNumber
     PhoneNumber phoneNumber;
     @InjectRandomNumber

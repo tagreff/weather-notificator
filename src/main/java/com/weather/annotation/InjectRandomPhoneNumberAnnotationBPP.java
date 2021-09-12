@@ -1,7 +1,7 @@
 package com.weather.annotation;
 
-import com.weather.model.CountryCode;
-import com.weather.model.PhoneNumber;
+import com.weather.dto.phoneNumber.CountryCode;
+import com.weather.dto.phoneNumber.PhoneNumber;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;
@@ -11,7 +11,7 @@ import org.springframework.util.ReflectionUtils;
 import java.lang.reflect.Field;
 
 @Component
-public class InjectRandomNumberAnnotationBPP implements BeanPostProcessor {
+public class InjectRandomPhoneNumberAnnotationBPP implements BeanPostProcessor {
 
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
