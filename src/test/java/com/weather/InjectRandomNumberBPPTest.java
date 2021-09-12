@@ -6,7 +6,7 @@ import com.weather.model.PhoneNumber;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 
-public class InjectRandomNumberBPP {
+public class InjectRandomNumberBPPTest {
 
     private final InjectRandomNumberAnnotationBPP injectRandomNumberAnnotationBeanPostProcessor = new InjectRandomNumberAnnotationBPP();
 
