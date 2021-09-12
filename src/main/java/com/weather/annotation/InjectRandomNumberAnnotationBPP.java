@@ -1,4 +1,4 @@
-package com.weather.impl;
+package com.weather.annotation;
 
 import com.weather.model.CountryCode;
 import com.weather.model.PhoneNumber;

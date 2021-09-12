@@ -1,7 +1,6 @@
-package com.weather;
+package com.weather.annotation;
 
 import com.weather.configuration.AppConfig;
-import com.weather.impl.InjectRandomNumber;
 import com.weather.model.PhoneNumber;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
