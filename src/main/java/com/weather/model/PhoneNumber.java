@@ -1,36 +1,15 @@
 package com.weather.model;
 
+import lombok.*;
+
+@ToString
+@Getter @Setter
+@EqualsAndHashCode
+@NoArgsConstructor
+@RequiredArgsConstructor
 public class PhoneNumber {
+    @NonNull
     private CountryCode countryCode;
+    @NonNull
     private String number;
-
-    public CountryCode getCountryCode() {
-        return countryCode;
-    }
-
-    public void setCountryCode(CountryCode countryCode) {
-        this.countryCode = countryCode;
-    }
-
-    public String getNumber() {
-        return number;
-    }
-
-    public void setNumber(String number) {
-        this.number = number;
-    }
-
-    @Override
-    public boolean equals(Object obj) {
-        if (this == obj) {
-            return true;
-        }
-        if (obj == null || getClass() != obj.getClass()) {
-            return false;
-        }
-        PhoneNumber phoneNumber = (PhoneNumber)obj;
-        if (!this.number.equals(phoneNumber.getNumber()))
-            return false;
-        return this.countryCode == phoneNumber.getCountryCode();
-    }
 }
